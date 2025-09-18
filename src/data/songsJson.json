@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "Amazing Grace",
+    "parts": [
+      {
+        "label": "Verse 1",
+        "text": "Amazing grace, how sweet the sound, that saved a wretch like me."
+      },
+      {
+        "label": "Verse 2",
+        "text": "'Twas grace that taught my heart to fear, and grace my fears relieved."
+      },
+      {
+        "label": "Chorus",
+        "text": "I once was lost, but now am found, was blind but now I see."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "How Great Thou Art",
+    "parts": [
+      {
+        "label": "Verse 1",
+        "text": "O Lord my God, when I in awesome wonder, consider all the worlds Thy Hands have made."
+      },
+      {
+        "label": "Chorus",
+        "text": "Then sings my soul, my Savior God, to Thee, how great Thou art, how great Thou art!"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Here I Am to Worship",
+    "parts": [
+      {
+        "label": "Verse 1",
+        "text": "Light of the world, You stepped down into darkness, opened my eyes, let me see."
+      },
+      {
+        "label": "Chorus",
+        "text": "Here I am to worship, here I am to bow down, here I am to say that You're my God."
+      },
+      {
+        "label": "Bridge",
+        "text": "I'll never know how much it cost to see my sin upon that cross."
+      }
+    ]
+  }
+]
