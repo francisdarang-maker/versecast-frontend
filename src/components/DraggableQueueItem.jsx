@@ -1,7 +1,7 @@
-// components/DraggableQueueItem.jsx
 import { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { Trash2 } from "lucide-react";
+import { Trash2, GripVertical } from "lucide-react";
+import { motion } from "framer-motion";
 
 const ItemTypes = {
   QUEUE_ITEM: "QUEUE_ITEM",
@@ -31,8 +31,13 @@ function DraggableQueueItem({ item, idx, currentIndex, moveItem, deleteFromQueue
   drag(drop(ref));
 
   return (
-    <div
+    <motion.div
       ref={ref}
+      layout  // 👈 enables smooth reordering animation
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
+      transition={{ type: "spring", stiffness: 500, damping: 30 }}
       className={`flex items-center justify-between p-3 rounded-lg border shadow-sm transition cursor-move ${
         idx === currentIndex
           ? "bg-violet-100 border-violet-400"
@@ -40,10 +45,18 @@ function DraggableQueueItem({ item, idx, currentIndex, moveItem, deleteFromQueue
       }`}
       style={{ opacity: isDragging ? 0.5 : 1 }}
     >
+      {/* Drag handle */}
+      <div className="mr-2 text-gray-400 hover:text-gray-600 cursor-grab">
+        <GripVertical size={16} />
+      </div>
+
+      {/* Content */}
       <div className="flex-1 min-w-0">
         <p className="text-xs font-semibold text-gray-500">{item.type.toUpperCase()}</p>
         <p className="text-sm text-gray-800 line-clamp-2 break-words">{item.text}</p>
       </div>
+
+      {/* Delete button */}
       <button
         onClick={() => deleteFromQueue(idx)}
         className="ml-2 p-1 text-red-500 hover:bg-red-100 rounded"
@@ -51,7 +64,7 @@ function DraggableQueueItem({ item, idx, currentIndex, moveItem, deleteFromQueue
       >
         <Trash2 size={16} />
       </button>
-    </div>
+    </motion.div>
   );
 }
 
